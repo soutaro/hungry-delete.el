@@ -1,0 +1,38 @@
+h1. hungry-delete.el
+
+Using soft-tab seems to be a good practice for programming. However, you provably find that you got frustrated with typing delete/backspace keys many times. This is a solution for that.
+
+Using hungry-delete, one hit of delete-key eats the following white spaces and new lines, or just delete one character. One hit of backspace-key eats the preceding white spaces, or just delete one character.
+
+h2. Installation
+
+Configure your load-path and just require hungry-delete.
+
+<pre>
+<code>
+(require 'hungry-delete)
+</code>
+</pre>
+
+Call add-hooks to enable hungry-delete in specific modes.
+
+<pre>
+<code>
+(add-hook 'tuareg-mode-hook #'(lambda () (hungry-keyboard tuareg-mode-map)))
+(add-hook 'ruby-mode-hook #'(lambda () (hungry-keyboard ruby-mode-map)))
+</code>
+</pre>
+
+Or, you can enable it in global (not recommended).
+
+<pre>
+<code>
+(hungry-keyboard global-map)
+</code>
+</pre>
+
+h1. Copying notice
+
+Written by Soutaro Matsumoto.
+
+Distributed under MIT License.
